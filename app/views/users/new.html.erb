@@ -9,7 +9,16 @@
 
   <div class="form">
     <%= form_for(@user, url: signup_path) do |f| %>
-    <%= render 'shared/error_messages' %>
+    <%= render 'shared/error_messages'%>
+    <%= f.label :fullName, "Full Names"%>
+      <%= f.text_field :fullName , class: "textbox form-control" %>
+
+      <%= f.label :photo, "User image" %>
+      <%= f.file_field :photo, class: "textbox form-control" %>
+
+      <%= f.label :coverimage, "Cover image" %>
+      <%= f.file_field :coverimage, class: "textbox form-control"%>
+
       <%= f.label :username%>
       <%= f.text_field :username , class: "textbox form-control" %>
 

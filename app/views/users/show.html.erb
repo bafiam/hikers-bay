@@ -1,0 +1,5 @@
+<h1><%= @user.username%></h1>
+<h1><%= @user.fullName%></h1>
+ 
+<%= link_to(image_tag(@user.photo.thumb.url, alt: 'Image'), @user.photo.url, target: '_blank') if @user.photo? %>
+<%= link_to(image_tag(@user.coverimage.thumb.url, alt: 'Image'), @user.coverimage.url, target: '_blank') if @user.photo? %>
