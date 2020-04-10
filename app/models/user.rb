@@ -12,7 +12,7 @@ class User < ApplicationRecord
   mount_uploader  :photo,  ImageUploader
   mount_uploader  :coverimage, ImageUploader
 
-  
+ has_many :opinions, class_name: "Opinion", foreign_key: "author_id"
 
  
 
