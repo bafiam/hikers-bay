@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash.now[:success] = "User sign up sucessful!"
-      redirect_to @user
+      redirect_to timeline_path
     else
       render 'new'
     end
