@@ -1,11 +1,61 @@
-<div class="container-fluid">
-<div class="row">
-      <div class="col-sm-2">
-      hhh
+<div class="d-flex" id="wrapper">
+  <!-- Sidebar -->
+  <div class=" border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading">
+      <div class="user-panel">
+        <div class="pull-left image">
+          <%= link_to(image_tag(current_user.photo.thumb.url, alt: 'Image', class: 'rounded img-photo'), current_user.photo.url, target: '_blank') if current_user.photo? %>
+        </div>
+        <div class="pull-left info">
+          <p><%=current_user.fullName%></p>
+        </div>
       </div>
-      <div class="col-sm-10">
-      jjj
+    </div>
+    <div class= "user-info">
+      <div class="user-count p-3">
+        <h2><strong><%=current_user.following.count%> </strong></h2>
+        <p>Following</p>
       </div>
-
+      <div class="user-count p-3">
+        <h2><strong><%=current_user.followers.count%> </strong></h2>
+        <p>Follower</p>
+      </div>
+    </div>
+    <div class="list-group list-group-flush">
+      <a href="#" class="list-group-items list-group-item-action">
+      <i class="fas fa-home"></i><b class ="pl-3 the-b">HOME</b> </a>
+      <a href="#" class="list-group-items list-group-item-action">
+      <i class="fas fa-at"></i><b class ="pl-3 the-b">CONNECT</b></a>
+      <a href="#" class="list-group-items list-group-item-action">
+      <i class="fas fa-hashtag"></i><b class ="pl-3 the-b">DISCOVER</b></a>
+      <a href="#" class="list-group-items list-group-item-action">
+      <i class="fas fa-user"></i><b class ="pl-3 the-b">PROFILE</b></a>
+      <a href="#" class="list-group-items list-group-item-action">
+      <i class="fas fa-chart-pie"></i><b class ="pl-3 the-b">STATISTICS</b></a>
+    </div>
   </div>
+  <!-- /#sidebar-wrapper -->
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <nav class="navbar navbar-expand-lg navbar-light nav-b  border-bottom">
+      <div class = "company-logo">
+       <%= image_tag("Screenshot from 2020-04-11 03-23-57.png", {:style => "width:60px;"}) %>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <%= link_to "Log out", logout_path, method: :delete, class: "nav-link"%>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <h1 class="mt-4">Simple Sidebar</h1>
+      <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
+      <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
 </div>
+<!-- /#wrapper -->

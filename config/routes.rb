@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  
+  root 'timelines#index'
   get '/timeline',  to: 'timelines#index'
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
