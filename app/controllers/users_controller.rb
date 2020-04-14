@@ -32,6 +32,12 @@ class UsersController < ApplicationController
     
     def profile
       @user = User.includes([:followers, :following]).find(params[:id])
+      @posts = Opinion.where(author_id:params[:id]).includes(:author)
+      @user_following = @user.following
+      @user_followers = @user.followers
+      @tweets = @user.opinions
+
+
     end
 
 end

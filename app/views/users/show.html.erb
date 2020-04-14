@@ -1,5 +1,64 @@
-<h1><%= @user.username%></h1>
-<h1><%= @user.fullName%></h1>
- 
-<%= link_to(image_tag(@user.photo.thumb.url, alt: 'Image'), @user.photo.url, target: '_blank') if @user.photo? %>
-<%= link_to(image_tag(@user.coverimage.thumb.url, alt: 'Image'), @user.coverimage.url, target: '_blank') if @user.photo? %>
+<div class="d-flex" id="wrapper">
+  <!-- Sidebar -->
+  <%= render 'opinions/leftaside' %>
+  <!-- /#sidebar-wrapper -->
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <%= render "opinions/topnavbar"%>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-8">
+          <%= image_tag (@user.coverimage.thumb.url), class: "img-responsive fb-image-lg"%>
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Tweets</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Following</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Follower</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <%= render 'opinions/alltweets', object: @posts %>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              <%= render 'users/following', object: @user_following%>
+            </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+              <%= render 'users/followers', object: @user_followers%>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 user-profile">
+          <div class="profile-info-left pt-3">
+            <div class="text-center">
+              <%= image_tag (@user.photo.thumb.url), class: "avatar img-circle rounded-circle"%>
+              <h2><%= @user.fullName%></h2>
+              <h2>@<%= @user.username%></h2>
+            </div>
+            <div class="action-buttons">
+              <div class="row ml-5">
+                <div class="col-xs-6 mr-3">
+                  <a href="#" class="btn btn-success btn-block"><i class="fa fa-plus-round"></i> Follow</a>
+                </div>
+                <div class="col-xs-6">
+                  <a href="#" class="btn btn-primary btn-block"><i class="fa fa-android-mail"></i> Unfollow</a>
+                </div>
+              </div>
+            </div>
+            <div class="section d-flex mt-3 border border-dark ">
+              <p class = "mx-3 px-2" ><span class="badge m-2"><%=@user.following.count%></span> <span class = "d-block">Following</span> </p>
+              <p class = "mx-3  px-2"><span class="badge m-2"><%=@user.followers.count%></span> <span class = "d-block">Followers</span> </p>
+              <p class = "mx-3 px-2"><span class="badge m-2"><%=@tweets.count%></span> <span class = "d-block">Tweets</span> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper -->
