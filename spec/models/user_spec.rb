@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -12,7 +10,7 @@ RSpec.describe User, type: :model do
     end
     it 'following' do
       should have_many(:following).through(:active_followers)
-                                  .source(:followed)
+        .source(:followed)
     end
 
     it 'active_followed' do
@@ -21,7 +19,7 @@ RSpec.describe User, type: :model do
 
     it 'followers' do
       should have_many(:followers).through(:active_followed)
-                                  .source(:follower)
+        .source(:follower)
     end
   end
 end

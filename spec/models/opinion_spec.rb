@@ -10,6 +10,5 @@ RSpec.describe Opinion, type: :model do
     it 'a text column of string' do
       should have_db_column(:text).of_type(:string)
     end
-    
   end
 end

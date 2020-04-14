@@ -16,6 +16,5 @@ RSpec.describe Relationship, type: :model do
     it 'a followed_id column of integer' do
       should have_db_column(:followed_id).of_type(:integer)
     end
-    
   end
 end

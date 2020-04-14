@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class User < ApplicationRecord
   has_secure_password
   validates :username, presence: true, length: { maximum: 50 }, uniqueness: true
@@ -10,8 +8,8 @@ class User < ApplicationRecord
   validates :coverimage, presence: true, file_size: { less_than: 9.megabytes }
 
   before_save { username.downcase! }
-  mount_uploader  :photo, ImageUploader
-  mount_uploader  :coverimage, ImageUploader
+  mount_uploader :photo, ImageUploader
+  mount_uploader :coverimage, ImageUploader
 
   has_many :opinions, class_name: 'Opinion', foreign_key: 'author_id'
   # for active followers
@@ -40,5 +38,4 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
-
 end

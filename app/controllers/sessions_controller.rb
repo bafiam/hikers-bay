@@ -1,10 +1,9 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     user = User.find_by(username: params[:session][:username])
-    if user && user.authenticate(params[:session][:password])
+    if user&.authenticate(params[:session][:password])
       log_in user
       flash[:success] = 'Welcome to Hikers-bay'
       redirect_to timeline_path
@@ -18,5 +17,4 @@ class SessionsController < ApplicationController
     log_out
     redirect_to login_path
   end
-
 end
