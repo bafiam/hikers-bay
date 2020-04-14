@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       flash[:success] = 'Welcome to Hikers-bay'
       redirect_to timeline_path
     else
-      flash.now[:danger] = 'Invalid username/password combination'
+      flash[:danger] = 'Invalid username/password combination'
       render 'new'
     end
   end
