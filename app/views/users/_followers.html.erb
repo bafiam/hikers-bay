@@ -7,7 +7,7 @@
         <%= link_to(image_tag(user.photo.thumb.url, alt: 'Image', class: 'rounded-circle img-photo'), user.photo.url, target: '_blank') if user.photo? %>
       </div>
       <div class="p-1">
-        <p><%=user.fullName%> </p>
+        <p><a href="<%= user_path(user) %>"><%=user.fullName%></a> </p>
       </div>
     </div>
   <%end%>

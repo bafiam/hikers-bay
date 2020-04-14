@@ -15,7 +15,8 @@
             <p>Has no followers</p>
           <% else %>
           
-            <p>Followed by  <%= user.followers.first.fullName%>
+          
+            <p>Followed by  <a href="<%= user_path(user) %>"><%= user.followers.first.fullName%></a>
             </p>
           <%end%>
         </div>

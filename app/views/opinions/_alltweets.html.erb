@@ -10,7 +10,8 @@
         <%= link_to(image_tag(post.author.photo.thumb.url, alt: 'Image', class: 'rounded img-photos'), post.author.photo.url, target: '_blank') if post.author.photo? %>
       </div>
       <div class="text-place">
-        <h4><%=post.author.fullName%></h4>
+     
+        <h4><a href="<%= user_path(post.author) %>"><%=post.author.fullName%></a></h4>
         <p class = "m"><%=post.text%></p>
       </div>
       
