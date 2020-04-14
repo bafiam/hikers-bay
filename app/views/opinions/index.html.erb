@@ -1,0 +1,39 @@
+<div class="d-flex" id="wrapper">
+  <!-- Sidebar -->
+  <%= render 'leftaside' %>
+  <!-- /#sidebar-wrapper -->
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <%= render "topnavbar"%>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-8">
+          <%= render 'bodynavbar' %>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <div class="card text-center pt-2">
+                <div class="card-header">
+                  Add Tweet
+                </div>
+                <div class="card-body">
+                  <% flash.each do |message_type, message| %>
+                    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+                  <% end %>
+                  <%= form_for(@tweet, url:timeline_path) do |f| %>
+                    <%= f.text_field :text , class:"form-control"%>
+                    <%= f.submit "Add", class: "btn btn-primary mt-3 px-5" %>
+                  <% end %>
+                </div>
+              </div>
+              <%= render 'alltweets', object: @posts %>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <%= render 'possibleusers', object: @user %>
+        </div>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+  </div>
+  <!-- /#wrapper -->

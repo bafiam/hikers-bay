@@ -1,0 +1,20 @@
+<div class="card mt-3">
+  <div class="card-header">
+    All Tweets
+  </div>
+  <div class="card-body">
+  <%@posts.each do |post|%>
+    <div class="tweets">
+    
+      <div class="image">
+        <%= link_to(image_tag(post.author.photo.thumb.url, alt: 'Image', class: 'rounded img-photos'), post.author.photo.url, target: '_blank') if post.author.photo? %>
+      </div>
+      <div class="text-place">
+        <h4><%=post.author.fullName%></h4>
+        <p class = "m"><%=post.text%></p>
+      </div>
+      
+    </div>
+    <%end%>
+  </div>
+</div>

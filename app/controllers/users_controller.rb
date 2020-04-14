@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    profile
     end
 
   def new
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash.now[:success] = "User sign up sucessful!"
+      flash[:success] = "User sign up sucessful!"
       redirect_to timeline_path
     else
       render 'new'
@@ -30,5 +30,8 @@ class UsersController < ApplicationController
                                    :password_confirmation)
     end
     
+    def profile
+      @user = User.includes([:followers, :following]).find(params[:id])
+    end
 
 end

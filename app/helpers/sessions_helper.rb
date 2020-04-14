@@ -4,7 +4,7 @@ module SessionsHelper
   end
 
   def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+    @current_user ||= User.includes([:followers, :following]).find_by(id: session[:user_id]) if session[:user_id]
   end
 
   def logged_in?
@@ -22,10 +22,11 @@ module SessionsHelper
       redirect_to login_url
    end
   end
+
   # Confirms the correct user.
   def correct_user
     @user = User.find(params[:id])
     redirect_to(login_url) unless @user == current_user
-    end
+  end
 
 end
