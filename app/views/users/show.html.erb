@@ -41,12 +41,7 @@
             </div>
             <div class="action-buttons">
               <div class="row ml-5">
-                <div class="col-xs-6 mr-3">
-                  <a href="#" class="btn btn-success btn-block"><i class="fas fa-user-plus"></i> Follow</a>
-                </div>
-                <div class="col-xs-6">
-                  <a href="#" class="btn btn-danger btn-block"><i class="fas fa-user-slash"></i> Unfollow</a>
-                </div>
+                <%= render 'relationships/operations', object: @user %>
               </div>
             </div>
             <div class="section d-flex mt-3 border border-dark ">

@@ -1,0 +1,23 @@
+ <% unless current_user == @user %>
+  <% if current_user.following?(@user) %>
+    <div class="col-xs-6">
+      <%= form_for(current_user.active_followers.find_by(followed_id:
+      @user.id), html: { method: :delete } ) do |f| %>
+      <div><%= hidden_field_tag :followed_id, @user.id %></div>
+        <%= f.submit "Unfollow", class: "btn btn-danger btn-block" %>
+         
+       
+      <% end %>
+    </div>
+  <% else %>
+    <div class="col-xs-6 mr-3">
+      <%= form_for(current_user.active_followers.build) do |f| %>
+        <div><%= hidden_field_tag :followed_id, @user.id %></div>
+        <%= f.submit raw("Follow") , class: "btn btn-success btn-block" %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
+<%# <i class="fas fa-user-plus"></i> %>
+<%# <i class="fas fa-user-slash"></i> %>
