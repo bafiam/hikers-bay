@@ -5,11 +5,11 @@
 ## Built With
 
 - Ruby v2.7.0
-- Ruby on Rails v5.2.4
+- Ruby on Rails v6.0.2
 
 ## Live Demo
 
-[Heroku Application](http://)
+[Heroku Application](https://safe-anchorage-81039.herokuapp.com/)
 
 ## Prerequisites
 
@@ -59,14 +59,14 @@ Inside The project Repository run the following command:
 
 Then, go to **_http://localhost:3000/_**
 
-)
 
 ## ⭐️ Testing the code with Rspec
 
 Inside The project Repository run the following command:
 
 ```
-    $ rspec
+    $ rspec spec --format documentation
+
 ```
 
 ## Author
