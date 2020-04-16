@@ -1,0 +1,14 @@
+<% if @user_followers.empty? %>
+  <p>Has no followers</p>
+<% else %>
+  <%@user_followers.each do |user|%>
+    <div class="user-panel">
+      <div class="pull-left image pr-1">
+        <%= link_to(image_tag(user.photo.thumb.url, alt: 'Image', class: 'rounded-circle img-photo'), user.photo.url, target: '_blank') if user.photo? %>
+      </div>
+      <div class="p-1">
+        <p><a href="<%= user_path(user) %>"><%=user.fullName%></a> </p>
+      </div>
+    </div>
+  <%end%>
+<%end%>

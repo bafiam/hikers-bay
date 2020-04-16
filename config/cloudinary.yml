@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dpejfdoaa
+  api_key: '282148973274492'
+  api_secret: VJghZ0sW8IteB3OEvq5FkDaTHmE
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dpejfdoaa
+  api_key: '282148973274492'
+  api_secret: VJghZ0sW8IteB3OEvq5FkDaTHmE
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dpejfdoaa
+  api_key: '282148973274492'
+  api_secret: VJghZ0sW8IteB3OEvq5FkDaTHmE
+  enhance_image_tag: true
+  static_file_support: false

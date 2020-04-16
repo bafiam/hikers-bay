@@ -1,0 +1,27 @@
+ 
+<h3 class="text-muted p-3 border-bottom ">
+  Who to follow
+</h3>
+<%@user.each do |user|%>
+  <% if user != current_user %>
+    <%unless current_user.following?(user)%>
+      <div class="user-panel">
+        <div class="pull-left image pr-1">
+          <%= link_to(image_tag(user.photo.thumb.url, alt: 'Image', class: 'rounded-circle img-photo'), user.photo.url, target: '_blank') if user.photo? %>
+        </div>
+        <div class="p-1">
+        <a href="<%= user_path(user) %>"><p><%=user.fullName%> </p></a>
+          <%if user.followers.empty?%>
+            <p>Has no followers</p>
+          <% else %>
+          
+          
+            <p>Followed by  <a href="<%= user_path(user) %>"><%= user.followers.first.fullName%></a>
+            </p>
+          <%end%>
+        </div>
+      </div>
+    <%end%>
+  <% end %>
+<%end%>
+
