@@ -1,6 +1,10 @@
 # Twitter redesign - Rails Project
 
-> This project consist of building a site similar to Twitter.
+> This project consist of building a site similar to Twitter that allow users to create accounts, login into the system, publish tweets, follow other users and unfollow as well.
+
+## Screenshots
+
+![screenshot](hay.png)
 
 ## Built With
 
@@ -58,7 +62,6 @@ Inside The project Repository run the following command:
 ```
 
 Then, go to **_http://localhost:3000/_**
-
 
 ## ⭐️ Testing the code with Rspec
 
