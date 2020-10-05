@@ -27,8 +27,6 @@ The development environment uses `Ruby`, hence install ruby before proceeding.
 
 ### Installing Dependencies
 
-_(If you have **Bundler** installed "To Check if **Bundler** is installed, run this command \*\*\_bundle -v_**, if you get **_Bundler version 2.x.x_\*\*", please skip to the next step!)\_
-
 > To install **Bundler** run this command:
 
 ```
@@ -45,7 +43,7 @@ Now, you are ready to install the _Gemfile_ dependencies. Run the following comm
 
 1. Clone the project - git clone`https://github.com/bafiam/hikers-bay.git`
 
-2. Run `bundle` to get all the gems.
+2. Run `bundle` to get all the gems
 
 3. Go to _config/database.yml_ change password to your postgres DB password, or follow this [guide](https://www.ionos.com/community/hosting/postgresql/how-to-use-postgresql-with-your-ruby-on-rails-application-on-ubuntu-1604/)
 
@@ -76,4 +74,4 @@ Inside The project Repository run the following command:
 
 👤 **Bafiam Steve**
 
-- Github: [@bafiam](https://github.com/bafiam)
+- GitHub: [@bafiam](https://github.com/bafiam)
